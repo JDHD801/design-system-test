@@ -3,25 +3,23 @@ import { fn } from 'storybook/test';
 import { Button } from './Button';
 
 const meta = {
-  title: 'ARC/Button',
+  title: 'Bootstrap 5/Button',
   component: Button,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    variant: {
+    type: {
       control: 'select',
-      options: ['filled', 'outlined', 'subtle'],
-    },
-    color: {
-      control: 'select',
-      options: ['primary', 'destructive', 'neutral', 'disabled'],
+      options: ['primary', 'secondary', 'danger', 'success', 'warning', 'info', 'dark', 'light', 'link'],
     },
     size: {
       control: 'select',
-      options: ['regular', 'compact'],
+      options: ['small', 'medium', 'large'],
     },
+    outline: { control: 'boolean' },
+    disabled: { control: 'boolean' },
     leadingIcon: { control: false },
     iconOnly: { control: 'boolean' },
   },
@@ -31,46 +29,58 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const FilledPrimary: Story = {
-  args: { variant: 'filled', color: 'primary', size: 'regular', label: 'Button' },
+export const Primary: Story = {
+  args: { type: 'primary', size: 'medium', label: 'Button' },
 };
 
-export const FilledDestructive: Story = {
-  args: { variant: 'filled', color: 'destructive', size: 'regular', label: 'Button' },
+export const Secondary: Story = {
+  args: { type: 'secondary', size: 'medium', label: 'Button' },
 };
 
-export const FilledNeutral: Story = {
-  args: { variant: 'filled', color: 'neutral', size: 'regular', label: 'Button' },
+export const Danger: Story = {
+  args: { type: 'danger', size: 'medium', label: 'Button' },
 };
 
-export const FilledDisabled: Story = {
-  args: { variant: 'filled', color: 'disabled', size: 'regular', label: 'Button' },
+export const Success: Story = {
+  args: { type: 'success', size: 'medium', label: 'Button' },
 };
 
-export const OutlinedPrimary: Story = {
-  args: { variant: 'outlined', color: 'primary', size: 'regular', label: 'Button' },
+export const Warning: Story = {
+  args: { type: 'warning', size: 'medium', label: 'Button' },
 };
 
-export const OutlinedDestructive: Story = {
-  args: { variant: 'outlined', color: 'destructive', size: 'regular', label: 'Button' },
+export const Info: Story = {
+  args: { type: 'info', size: 'medium', label: 'Button' },
 };
 
-export const OutlinedNeutral: Story = {
-  args: { variant: 'outlined', color: 'neutral', size: 'regular', label: 'Button' },
+export const Dark: Story = {
+  args: { type: 'dark', size: 'medium', label: 'Button' },
 };
 
-export const SubtlePrimary: Story = {
-  args: { variant: 'subtle', color: 'primary', size: 'regular', label: 'Button' },
+export const Light: Story = {
+  args: { type: 'light', size: 'medium', label: 'Button' },
 };
 
-export const SubtleDestructive: Story = {
-  args: { variant: 'subtle', color: 'destructive', size: 'regular', label: 'Button' },
+export const OutlinePrimary: Story = {
+  args: { type: 'primary', outline: true, size: 'medium', label: 'Button' },
 };
 
-export const SubtleNeutral: Story = {
-  args: { variant: 'subtle', color: 'neutral', size: 'regular', label: 'Button' },
+export const OutlineSecondary: Story = {
+  args: { type: 'secondary', outline: true, size: 'medium', label: 'Button' },
 };
 
-export const CompactPrimary: Story = {
-  args: { variant: 'filled', color: 'primary', size: 'compact', label: 'Button' },
+export const OutlineDanger: Story = {
+  args: { type: 'danger', outline: true, size: 'medium', label: 'Button' },
+};
+
+export const Large: Story = {
+  args: { type: 'primary', size: 'large', label: 'Button' },
+};
+
+export const Small: Story = {
+  args: { type: 'primary', size: 'small', label: 'Button' },
+};
+
+export const Disabled: Story = {
+  args: { type: 'primary', size: 'medium', label: 'Button', disabled: true },
 };
